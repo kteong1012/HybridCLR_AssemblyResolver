@@ -55,34 +55,83 @@ namespace AssemblyResolverNS
             // 3. Resolve all hot modules
             foreach (var hotModule in hotModules)
             {
-                var typeRefs = hotModule.GetTypeRefs();
-                Console.WriteLine($"——————Resolving '{hotModule.Name}'");
-                foreach (var typeRef in typeRefs)
+                ResolveTypeRefs(hotModule);
+                ResolveTypeMembers(hotModule);
+            }
+
+            Console.WriteLine($"======Finished Resolving assemblies");
+        }
+
+        private void ResolveTypeRefs(ModuleDefMD hotModule)
+        {
+            Console.WriteLine($"——————Resolving '{hotModule.Name}'");
+            var typeRefs = hotModule.GetTypeRefs();
+            foreach (var typeRef in typeRefs)
+            {
+                if (_aotModules.TryGetValue(typeRef.DefinitionAssembly.Name + ".dll", out var aotModule))
                 {
-                    if (_aotModules.TryGetValue(typeRef.DefinitionAssembly.Name + ".dll", out var aotModule))
+                    var aotTypeDef = aotModule.Find(typeRef.FullName, false);
+                    if (aotTypeDef != null)
                     {
-                        var aotTypeDef = aotModule.Find(typeRef.FullName, false);
-                        if (aotTypeDef != null)
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"Resolved '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Failed to resolve '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                        Console.ResetColor();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"No need to resolve '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                }
+            }
+        }
+
+        private void ResolveTypeMembers(ModuleDefMD hotModule)
+        {
+            Console.WriteLine($"——————Resolving '{hotModule.Name}'");
+            var memberRefs = hotModule.GetMemberRefs();
+            foreach (var memberRef in memberRefs)
+            {
+                if (!memberRef.IsMethodRef)
+                {
+                    continue;
+                }
+                if (_aotModules.TryGetValue(memberRef.DeclaringType.DefinitionAssembly.Name + ".dll", out var aotModule))
+                {
+                    var aotTypeDef = aotModule.Find(memberRef.DeclaringType.FullName, false);
+                    if (aotTypeDef != null)
+                    {
+                        var aotMethodDef = aotTypeDef.FindMethod(memberRef.Name, memberRef.MethodSig);
+                        if (aotMethodDef != null)
                         {
                             Console.ForegroundColor = ConsoleColor.Green;
-                            Console.WriteLine($"Resolved '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                            Console.WriteLine($"Resolved '{memberRef.FullName}' => {memberRef.DeclaringType.DefinitionAssembly.Name}");
                             Console.ResetColor();
                         }
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($"Failed to resolve '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                            Console.WriteLine($"Failed to resolve '{memberRef.FullName}' => {memberRef.DeclaringType.DefinitionAssembly.Name}");
                             Console.ResetColor();
                         }
                     }
                     else
                     {
-                        Console.WriteLine($"No need to resolve '{typeRef.FullName}' => {typeRef.DefinitionAssembly.Name}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Failed to resolve '{memberRef.FullName}' => {memberRef.DeclaringType.DefinitionAssembly.Name}");
+                        Console.ResetColor();
                     }
                 }
+                else
+                {
+                    Console.WriteLine($"No need to resolve '{memberRef.FullName}' => {memberRef.DeclaringType.DefinitionAssembly.Name}");
+                }
             }
-
-            Console.WriteLine($"======Finished Resolving assemblies");
         }
 
         private bool IsHotFile(string fileName)
