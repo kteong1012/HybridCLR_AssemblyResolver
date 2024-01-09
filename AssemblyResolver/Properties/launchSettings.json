@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AssemblyResolver": {
+      "commandName": "Project",
+      "commandLineArgs": "-aot_dir D:\\OtherProjects\\TestUnity\\HybridCLRData\\AssembliesPostIl2CppStrip\\StandaloneWindows64\r\n-hot_files \"D:\\OtherProjects\\TestUnity\\HybridCLRData\\HotUpdateDlls\\StandaloneWindows64\\HotUpdate.dll\""
+    }
+  }
+}

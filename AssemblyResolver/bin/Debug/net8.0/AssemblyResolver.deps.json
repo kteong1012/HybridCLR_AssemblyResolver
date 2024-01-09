@@ -1,0 +1,59 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "AssemblyResolver/1.0.0": {
+        "dependencies": {
+          "Microsoft.DotNet.ILCompiler": "8.0.0",
+          "Microsoft.NET.ILLink.Tasks": "8.0.0",
+          "dnlib": "4.3.0"
+        },
+        "runtime": {
+          "AssemblyResolver.dll": {}
+        }
+      },
+      "dnlib/4.3.0": {
+        "runtime": {
+          "lib/net6.0/dnlib.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "Microsoft.DotNet.ILCompiler/8.0.0": {},
+      "Microsoft.NET.ILLink.Tasks/8.0.0": {}
+    }
+  },
+  "libraries": {
+    "AssemblyResolver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dnlib/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aGJ1KzGLV6dsU6gsR5dXfhjcIn0z0YJ29VqysPtHZ8237adtPfO0X2E6eyYehwrzeKMkZKQOdC1VQaHdQQ+yCw==",
+      "path": "dnlib/4.3.0",
+      "hashPath": "dnlib.4.3.0.nupkg.sha512"
+    },
+    "Microsoft.DotNet.ILCompiler/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zuTbpcWDCCvESnOAvpHuwum1C3jJIeDl+grYcRDqyoHsPAUutIB6wb7iJV3Y2Q96crKC6cObqf92eOVEiG7keQ==",
+      "path": "microsoft.dotnet.ilcompiler/8.0.0",
+      "hashPath": "microsoft.dotnet.ilcompiler.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.NET.ILLink.Tasks/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B3etT5XQ2nlWkZGO2m/ytDYrOmSsQG1XNBaM6ZYlX5Ch/tDrMFadr0/mK6gjZwaQc55g+5+WZMw4Cz3m8VEF7g==",
+      "path": "microsoft.net.illink.tasks/8.0.0",
+      "hashPath": "microsoft.net.illink.tasks.8.0.0.nupkg.sha512"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "AssemblyResolver/1.0.0": {
+        "dependencies": {
+          "Microsoft.DotNet.ILCompiler": "8.0.0",
+          "Microsoft.NET.ILLink.Analyzers": "7.0.100-1.23211.1",
+          "Microsoft.NET.ILLink.Tasks": "7.0.100-1.23211.1",
+          "dnlib": "4.3.0"
+        },
+        "runtime": {
+          "AssemblyResolver.dll": {}
+        }
+      },
+      "dnlib/4.3.0": {
+        "runtime": {
+          "lib/net6.0/dnlib.dll": {
+            "assemblyVersion": "4.3.0.0",
+            "fileVersion": "4.3.0.0"
+          }
+        }
+      },
+      "Microsoft.DotNet.ILCompiler/8.0.0": {},
+      "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {},
+      "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {}
+    }
+  },
+  "libraries": {
+    "AssemblyResolver/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "dnlib/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aGJ1KzGLV6dsU6gsR5dXfhjcIn0z0YJ29VqysPtHZ8237adtPfO0X2E6eyYehwrzeKMkZKQOdC1VQaHdQQ+yCw==",
+      "path": "dnlib/4.3.0",
+      "hashPath": "dnlib.4.3.0.nupkg.sha512"
+    },
+    "Microsoft.DotNet.ILCompiler/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zuTbpcWDCCvESnOAvpHuwum1C3jJIeDl+grYcRDqyoHsPAUutIB6wb7iJV3Y2Q96crKC6cObqf92eOVEiG7keQ==",
+      "path": "microsoft.dotnet.ilcompiler/8.0.0",
+      "hashPath": "microsoft.dotnet.ilcompiler.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.NET.ILLink.Analyzers/7.0.100-1.23211.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0GvbEgDGcUQA9KuWcQU1WwYHXt1tBzNr1Nls/M57rM7NA/AndFwCaCEoJpJkmxRY7xLlPDBnmGp8h5+FNqUngg==",
+      "path": "microsoft.net.illink.analyzers/7.0.100-1.23211.1",
+      "hashPath": "microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512"
+    },
+    "Microsoft.NET.ILLink.Tasks/7.0.100-1.23211.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tvG8XZYLjT0o3WicCyKBZysVWo1jC9HdCFmNRmddx3WbAz0UCsd0qKZqpiEo99VLA8Re+FzWK51OcRldQPbt2Q==",
+      "path": "microsoft.net.illink.tasks/7.0.100-1.23211.1",
+      "hashPath": "microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512"
+    }
+  }
+}
