@@ -6,8 +6,8 @@ help:
 example:
 ```batch
 set PLATFORM=Android
-set AOT_DIR=UnityProject/HybridCLR/AssembliesPostIl2CppStrip/%PLATFORM%
-set HOT_FILES=UnityProject/HybridCLR/HotUpdateDlls/%PLATFORM%/HotUpdate.dll
+set AOT_DIR=UnityProject/HybridCLRData/AssembliesPostIl2CppStrip/%PLATFORM%
+set HOT_FILES=UnityProject/HybridCLRData/HotUpdateDlls/%PLATFORM%/HotUpdate.dll
 
 dotnet AssemblyResolver.dll -aot_dir %AOT_DIR% -hot_files %HOT_FILES%
 ```
