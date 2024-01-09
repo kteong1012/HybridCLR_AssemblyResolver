@@ -1,3 +1,5 @@
+## 用于检查热更程序集是否引用了被裁剪的AOT类型
+
 help:
 -aot_dir <directory_path> : directory of aot which hotupdate dlls depend on
 -hot_files <dll1_path>;<dll2_path> : hotupdate dlls, split by ';'
